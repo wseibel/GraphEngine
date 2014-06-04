@@ -19,4 +19,16 @@ public class Graph {
 	public NodeSet getNodes() {
 		return nodes;
 	}
+
+	public void removeNode(Node node) {
+		for(String edgeLabel: node.getOutgoingLinks().keySet()){
+			node.removeAllOutgoingEdges(edgeLabel);
+		}
+
+		for(String edgeLabel: node.getIncomingLinks().keySet()){
+			node.removeAllIncomingEdges(edgeLabel);
+		}
+		
+		nodes.remove(nodes);		
+	}
 }
